@@ -5,7 +5,7 @@ const app = express();
 const mysql = require('mysql');
 app.use(express.json());
 app.use(express.static('public'));
-require('dotenv').config()
+require('dotenv').config();
 
 let conn = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -55,32 +55,31 @@ app.post('/posts', (req, res) => {
 });
 
 app.put('/posts/:id/upvote', (req, res) => {
-        // let user_id = req.headers.user_id;
-        let id = req.params.id;
-        conn.query(`UPDATE posts SET score = score + 1 WHERE id = (?);`, [id], (err, rows) => {
-          if (err) {
-            res.status(500).json(err);
-            return;
-          }
-          res.status(200);
+  // let user_id = req.headers.user_id;
+  let id = req.params.id;
+  conn.query(`UPDATE posts SET score = score + 1 WHERE id = (?);`, [id], (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    }
+    res.status(200);
 
-            
-            conn.query(
-              `SELECT title, score
+    conn.query(
+      `SELECT title, score
                 FROM posts
                 WHERE id = (?);`,
-              [id],
-              (err, rows) => {
-                if (err) {
-                  res.status(500).json(err);
-                  return;
-                }
+      [id],
+      (err, rows) => {
+        if (err) {
+          res.status(500).json(err);
+          return;
+        }
 
-                res.status(200).json(rows);
-              }
-            );
-          });
-        });
+        res.status(200).json(rows);
+      }
+    );
+  });
+});
 
 app.put('/posts/:id/downvote', (req, res) => {
   let id = req.params.id;
