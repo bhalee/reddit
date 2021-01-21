@@ -5,13 +5,14 @@ const app = express();
 const mysql = require('mysql');
 app.use(express.json());
 app.use(express.static('public'));
+require('dotenv').config()
 
 let conn = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'reddit',
-  insecureAuth: 'true',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  insecureAuth: process.env.AUTH,
 });
 
 conn.connect((err) => {
@@ -139,8 +140,6 @@ app.delete('/posts/:id', (req, res) => {
   });
 });
 
-app.listen(3000);
-
 app.get('/users', (req, res) => {
   conn.query(`SELECT username FROM users WHERE status = 'active'`, (err, rows) => {
     if (err) {
@@ -188,3 +187,5 @@ app.delete('/users/:id', (req, res) => {
     });
   });
 });
+
+app.listen(5000);
