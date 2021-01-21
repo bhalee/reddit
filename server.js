@@ -55,7 +55,7 @@ app.post('/posts', (req, res) => {
 });
 
 app.put('/posts/:id/upvote', (req, res) => {
-  // let user_id = req.headers.user_id;
+  
   let id = req.params.id;
   conn.query(`UPDATE posts SET score = score + 1 WHERE id = (?);`, [id], (err, rows) => {
     if (err) {
