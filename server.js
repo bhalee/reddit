@@ -19,7 +19,7 @@ conn.connect((err) => {
   if (err) {
     console.log(err.toString());
   }
-  console.log('Connected to mysql');
+  console.log('mysql on');
 });
 
 app.get('/hello', (req, res) => {
