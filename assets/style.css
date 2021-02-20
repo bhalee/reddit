@@ -1,0 +1,270 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: rgb(235, 235, 235);
+}
+.stars,
+.twinkling,
+.clouds {
+  position: absolute;
+  display: block;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+  z-index: 3;
+  background: #000 url('https://image.ibb.co/mjnygo/stars.png') repeat top center;
+}
+
+.twinkling {
+  z-index: 4;
+  background: transparent url('https://image.ibb.co/ir1DE8/twinkling.png') repeat top center;
+  animation: move-twink-back 500s linear infinite;
+}
+.clouds {
+  height: 250px;
+  top: -50px;
+  z-index: 6;
+  background: transparent url('https://image.ibb.co/bT4N7T/clouds.png') repeat top center;
+  animation: move-clouds-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+@keyframes move-clouds-back {
+  from {
+    background-position: -800px 0;
+  }
+  to {
+    background-position: 10000px 0;
+  }
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.up-arrow{
+ cursor: pointer; 
+}
+.down-arrow{
+  cursor: pointer; 
+ }
+
+.header-title {
+  font-family: 'Lato', sans-serif;
+  position: absolute;
+  display: block;
+  top: 100px;
+  left: 5%;
+  color: azure;
+  font-size: 60px;
+  z-index: 5;
+  letter-spacing: 10px;
+  opacity: 0.7;
+}
+.header-title::after {
+  content: 'CLONE PROJECT';
+  padding-left: 7px;
+  margin-left: 20px;
+  text-align: center;
+  border: 1px solid azure;
+  border-radius: 5px;
+  font-size: 25px;
+}
+.add-post{
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  position: absolute;
+  top: 250px;
+  left: 5%;
+  right: 5%;
+}
+label{
+  margin-top: 20px;
+}
+form{
+  font-family: 'Raleway', sans-serif;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  width: 1100px;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+}
+input{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 40px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  font-size: 25px;
+  cursor: pointer;
+}
+button{
+  align-self: flex-start;
+  width: 150px;
+  height: 50px;
+  background-color: #333333;
+  color: white;
+  font-size: 18px;
+  border-radius: 25px;
+  margin-top: 50px;
+  outline: none;
+  cursor: pointer;
+}
+#add-url{
+  z-index: 0;
+  font-size: 20px;
+  width: 100%;
+}
+#add-title{
+  z-index: 0;
+  font-size: 20px;
+}
+
+.posts {
+  position: absolute;
+  top: 250px;
+  left: 5%;
+  right: 5%;
+  max-width: 1200px;
+}
+.post-box {
+  display: grid;
+  position: relative;
+  grid-template-columns: 80px 1fr;
+  background-color: whitesmoke;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  border-radius: 5px;
+  min-width: 400px;
+  animation: posts 4s;
+  animation-timing-function: ease;
+}
+
+.new-post-box {
+  z-index: 2;
+  position: relative;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  min-width: 400px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  background-color: whitesmoke;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  animation: newpost 4s;
+  animation-timing-function: ease;
+}
+@keyframes newpost {
+  from {top: -600px;}
+  to {top: 0px;}
+}
+
+.vote-buttons {
+  padding-top: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #333333;
+  color: whitesmoke;
+  font-size: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+}
+.post-content {
+  display: grid;
+  margin: 10px;
+  grid-template-rows: 30px 1fr 30px;
+  min-width: 300px;
+}
+.post-info {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+}
+
+.post-title {
+  color: #000;
+  text-decoration: none;
+  font-size: 35px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
+.login-info{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 400px;
+  background-color: whitesmoke;
+  max-width: 400px;
+  top: 250px;
+  left: 1350px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.new-post-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  width: 150px;
+  height: 50px;
+  background-color: #333333;
+  color: white;
+  font-size: 18px;
+  border: 1px solid rgb(180, 180, 180);
+  font-size: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  width: 80%;
+  height: 40px;
+  margin-top: 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+}
+.form{
+  display: none;
+  position: relative;
+  background-color: whitesmoke;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  border-radius: 5px;
+  animation: form 4s;
+  animation-timing-function: ease;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REDDit</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="stars"></div>
+      <div class="twinkling"></div>
+      <div class="clouds"></div>
+      <div class="header-title">REDDit</div>
+    </div>
+    <div class="container">
+      <div class=add-post>
+        <form class="form">
+          <label for="addtitle">Title</label>
+          <textarea name="" id="add-title" cols="30" rows="2" class="input" maxlength="180" required></textarea>
+          <label for="addurl">URL:</label>
+          <input type="url" name="addurl" id="add-url" class="input" required>
+        <input type="submit" value="Send Post" id="send-post">
+        </form>
+      </div>
+      <div class="posts">
+      </div>
+      <div class="login-info">
+        <div class="new-post-button">
+          New Post
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
